@@ -1,0 +1,140 @@
+/* ========================================
+   BRAND COLOR SYSTEM – SMS VIỆT NAM
+======================================== */
+ /* :root {
+   🔴 ĐỎ – màu chính 
+    --primary-color: #c4161c;
+    --primary-dark: #a21217;
+    --primary-light: #e94b50;
+
+    /* 🟢 XANH LÁ – màu phụ 
+    --secondary-color: #0a8f3c;
+    --secondary-dark: #076b2d;
+    --secondary-light: #1bbf64;
+
+    /* 🎯 ACCENT 
+    --accent-color: var(--primary-color);
+
+    /* 🧾 TEXT 
+    --text-color: #222222;
+    --text-light: #555555;
+    --text-muted: #888888;
+    --text-inverse: #ffffff;
+
+    /* 🧱 BACKGROUND 
+    --white: #ffffff;
+    --light-bg: #f8f9fa;
+    --border-color: #e5e5e5;
+
+    /* ✨ EFFECT 
+    --shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.15);
+    --transition: all 0.25s ease;
+
+    /* 📐 RADIUS 
+    --border-radius: 10px;
+    --border-radius-sm: 6px;
+}*/
+
+:root {
+    /* --- MÀU CHÍNH (GIỮ NGUYÊN ĐỎ) --- */
+    /* Màu đỏ thương hiệu: Dùng cho Nút bấm, Giá tiền, Điểm nhấn nóng */
+    --primary-color: #c4161c;       /* Đỏ gốc của bạn */
+    --primary-dark: #a21217;        /* Đỏ đậm khi hover */
+    --primary-light: #fce8e9;       /* Đỏ rất nhạt làm nền nhẹ */
+
+    /* --- MÀU PHỤ (ĐỔI SANG XANH SANG TRỌNG) --- */
+    /* Dùng màu Xanh Rừng Già (Deep Emerald) thay vì xanh cỏ */
+    /* Màu này dùng cho: Footer, Tiêu đề chính, Nền thẻ nổi bật */
+    --secondary-color: #064e3b;     /* Xanh rêu đậm/Xanh ngọc lục bảo tối */
+    --secondary-dark: #022c22;      /* Xanh đen (gần như đen) */
+    --secondary-light: #d1fae5;     /* Xanh mint nhạt (dùng làm nền nhẹ) */
+    
+    /* Màu điểm nhấn tươi sáng (dùng cho icon nhỏ) */
+    --success-green: #10b981;       /* Xanh lá công nghệ (Tech Green) */
+
+    /* --- TEXT & NỀN --- */
+    --accent-color: var(--primary-color);
+    --text-color: #333333;          /* Xám đen dễ đọc */
+    --text-light: #666666;
+    --text-muted: #888888;
+    --white: #ffffff;
+    --light-bg: #f3f4f6;            /* Xám xanh rất nhẹ (thay cho trắng toát) */
+    --border-color: #e5e7eb;
+
+    /* --- HIỆU ỨNG --- */
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --border-radius: 8px;
+}
+
+/* ======================================================
+   FIX LỖI BACKROUND ĐỎ & XANH KHÔNG FULL MÀN HÌNH
+   (Dán vào dòng cuối cùng của file styles.css)
+====================================================== */
+
+/* 1. XỬ LÝ PHẦN MÀU ĐỎ (CTA SECTION) */
+.cta {
+    /* Kỹ thuật phá vỡ container để tràn viền */
+    width: 100vw !important;  /* Rộng bằng 100% khung nhìn */
+    position: relative !important;
+    left: 50% !important;
+    right: 50% !important;
+    margin-left: -50vw !important; /* Kéo lùi về bên trái */
+    margin-right: -50vw !important; /* Kéo lùi về bên phải */
+    
+    /* Đảm bảo nội dung bên trong vẫn nằm giữa */
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    
+    /* Màu nền đỏ chuẩn */
+    background: linear-gradient(135deg, #a21217 0%, #c4161c 100%) !important;
+    box-sizing: border-box !important;
+}
+
+/* Đưa nội dung CTA vào giữa lại (vì container cha đã bị phá vỡ) */
+.cta .container, .cta-content {
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+    padding: 0 15px !important;
+}
+
+
+/* 2. XỬ LÝ PHẦN MÀU XANH (FOOTER SECTION) */
+.footer {
+    /* Tương tự như trên: Phá vỡ giới hạn chiều rộng */
+    width: 100vw !important;
+    position: relative !important;
+    left: 50% !important;
+    right: 50% !important;
+    margin-left: -50vw !important;
+    margin-right: -50vw !important;
+    
+    /* Màu nền xanh chuẩn */
+    background: linear-gradient(to bottom, #07a62b, #023c14) !important;
+    
+    padding-top: 60px !important;
+    padding-bottom: 20px !important;
+    margin-bottom: 0 !important; /* Đảm bảo sát đáy, không hở trắng */
+}
+
+/* Đưa nội dung Footer vào giữa */
+.footer .container, .footer-grid {
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+    padding: 0 15px !important;
+    
+    /* Fix lỗi grid bị lệch khi full màn hình */
+    display: grid !important;
+    grid-template-columns: 1.5fr 1fr 1fr 1.3fr !important;
+    gap: 30px !important;
+}
+
+/* 3. FIX LỖI THANH CUỘN NGANG (Cực quan trọng khi dùng 100vw) */
+html, body {
+    overflow-x: hidden !important; /* Chặn thanh cuộn ngang thừa thãi */
+    width: 100% !important;
+}

@@ -1,0 +1,22 @@
+# --- PHẦN 1: BẢO VỆ SERVER ---
+# Chặn xem danh sách file
+Options -Indexes
+
+# Chặn chạy file mã độc (Quan trọng nhất)
+<FilesMatch "\.(php|php3|php4|php5|pl|py|cgi|asp|aspx)$">
+    Order Deny,Allow
+    Deny from all
+</FilesMatch>
+
+# Bảo vệ chính file .htaccess
+<Files .htaccess>
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+# --- PHẦN 2: BẢO VỆ TRÌNH DUYỆT KHÁCH HÀNG ---
+<IfModule mod_headers.c>
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-XSS-Protection "1; mode=block"
+</IfModule>
