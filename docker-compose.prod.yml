@@ -1,8 +1,6 @@
-version: '3.8'
-
 services:
   web:
-    build: .
+    image: ghcr.io/thu-nguyen3136/cay-xanh-van-toan:latest
     container_name: cay-xanh-van-toan-prod
     ports:
       - "80:80"
