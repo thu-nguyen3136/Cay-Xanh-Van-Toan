@@ -17,6 +17,8 @@ winget install --id Cloudflare.cloudflared
 
 **Bước 2: Kết nối SSH vào máy chủ**
 Sử dụng ssh thông qua Cloudflare Tunnel để truy cập vào máy chủ.
+```powershell
+ssh ...chuỗi lệnh được gửi qua email...
 ```
 
 **Bước 3: Di chuyển đến thư mục làm việc**
