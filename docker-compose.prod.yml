@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   web:
     image: ghcr.io/thu-nguyen3136/cay-xanh-van-toan:latest
