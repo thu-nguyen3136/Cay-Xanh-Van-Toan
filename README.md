@@ -1,7 +1,7 @@
 # Dự Án Cây Xanh Văn Toán
 
 ## 1. Tự Động Hóa Docker Image (GitHub Actions)
-Docker image của dự án sẽ được hệ thống GitHub Actions tự động build và push lên GitHub Container Registry (`ghcr.io/thu-nguyen3136/cay-xanh-van-toan:latest`) khi có các sự kiện sau:
+Docker image của dự án sẽ được hệ thống GitHub Actions tự động build và push lên GitHub Container Registry khi có các sự kiện sau:
 - Mở và Merge **Pull Request** vào nhánh `main`
 - **Commit push trực tiếp** lên nhánh `main`
 - **Commit push trực tiếp** lên nhánh `github-action-creation`
@@ -9,17 +9,31 @@ Docker image của dự án sẽ được hệ thống GitHub Actions tự độ
 ## 2. Hướng Dẫn Deploy Trên Production
 Để khởi chạy hoặc cập nhật phiên bản mới nhất của website trên máy chủ production, hãy làm theo các bước dưới đây:
 
-**Bước 1:** Copy nội dung từ file `docker-compose.prod.yml` trong mã nguồn và tạo ra một file tên là `docker-compose.yml` trên máy chủ production.
-
-**Bước 2:** Đặt file `deploy.sh` (chứa các lệnh tự động pull docker image mới nhất và chạy trên port 80) vào cùng thư mục với file `docker-compose.yml` vừa tạo trên production.
-
-**Bước 3:** Cấp quyền thực thi cho file script deploy bằng lệnh:
-```bash
-chmod +x deploy.sh
+**Bước 1: Cài đặt Cloudflared**
+Mở PowerShell trên máy cá nhân của bạn và chạy lệnh sau:
+```powershell
+winget install --id Cloudflare.cloudflared
 ```
 
-**Bước 4:** Chạy file deploy để bắt đầu cập nhật và chạy website:
+**Bước 2: Kết nối SSH vào máy chủ**
+Sử dụng ssh thông qua Cloudflare Tunnel để truy cập vào máy chủ.
+```
+
+**Bước 3: Di chuyển đến thư mục làm việc**
+Sau khi đăng nhập thành công, hãy di chuyển vào đúng thư mục chứa các file cấu hình và chạy Docker:
 ```bash
+cd /home/tgh2171/www/html
+```
+
+**Bước 4: Chuẩn bị file Docker Compose**
+Đảm bảo bạn đã có file `docker-compose.yml` tại thư mục này. Nội dung của nó phải giống hệt với nội dung từ file `docker-compose.prod.yml` trong mã nguồn.
+
+**Bước 5: Chuẩn bị script Deploy**
+Đặt file `deploy.sh` (chứa các lệnh tự động pull image mới nhất và chạy container) vào cùng thư mục `/home/tgh2171/www/html`. 
+
+**Bước 6: Khởi chạy và cập nhật Website**
+Cấp quyền thực thi và chạy file script:
+```bash
+sudo chmod +x deploy.sh
 ./deploy.sh
 ```
-*(Lưu ý: Bạn có thể sử dụng `./deploy.sh` hoặc `bash deploy.sh`)*
