@@ -1,11 +1,9 @@
 name: Build and Publish Docker Image
 
 on:
-  push:
-    branches:
-      - main
-      - github-action-creation
   pull_request:
+    types:
+      - closed
     branches:
       - main
 
@@ -16,6 +14,7 @@ env:
 jobs:
   build-and-push-image:
     runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
 
     permissions:
       contents: read
