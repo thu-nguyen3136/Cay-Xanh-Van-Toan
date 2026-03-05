@@ -35,7 +35,7 @@
 
     <nav id="navbar">
       <ul>
-        <li><a href="dich-vu-cua-cay-chat-cay/" class="nav-link">Dịch Vụ Cưa Cây, Chặt Cây</a></li>
+        <li><a href="/dich-vu-cua-cay-chat-cay/" class="nav-link">Dịch Vụ Cưa Cây, Chặt Cây</a></li>
         <li><a href="/dich-vu-cat-tia-cay/" class="nav-link">Dịch Vụ Cắt Tỉa Cây</a></li>
         <li><a href="/dich-vu-di-doi-cay-xanh/" class="nav-link">Dịch Vụ Di Dời Cây Xanh</a></li>
         <li><a href="/lien-he/" class="nav-link">Liên Hệ</a></li>
@@ -371,7 +371,7 @@
 
     <!-- CỘT 1 -->
     <div class="footer-col footer-left">
-      <img src="images/logo-cay-xanh-dài.jpg" alt="Cây Xanh Văn Toán" class="footer-logo">
+      <img src="images/logo-cay-xanh-dai.jpg" alt="Cây Xanh Văn Toán" class="footer-logo">
 
       <div class="footer-info">
         <p>📞 0984 675 414</p>
@@ -394,9 +394,9 @@
     <div class="footer-col">
       <h3>CHÚNG TÔI CUNG CẤP</h3>
       <ul>
-        <li><a href="#">Dịch Vụ Cưa Cây, Chặt Cây</a></li>
-        <li><a href="#">Dịch Vụ Cắt Tỉa Cây</a></li>
-        <li><a href="#">Dịch Vụ Di Dời Cây</a></li>
+        <li><a href="/dich-vu-cua-cay-chat-cay/">Dịch Vụ Cưa Cây, Chặt Cây</a></li>
+    <li><a href="/dich-vu-cat-tia-cay/">Dịch Vụ Cắt Tỉa Cây</a></li>
+    <li><a href="/dich-vu-di-doi-cay-xanh/">Dịch Vụ Di Dời Cây Xanh</a></li>
       </ul>
     </div>
 
@@ -501,4 +501,20 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 </body>
+
+<script>
+  // Hàm để nhúng HTML
+  function loadComponent(id, file) {
+    fetch(file)
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById(id).innerHTML = data;
+      })
+      .catch(error => console.error('Lỗi khi tải thành phần:', error));
+  }
+
+  // Gọi hàm (Lưu ý đường dẫn bắt đầu bằng / để chạy đúng ở mọi cấp thư mục)
+  loadComponent('header-placeholder', '/components/header.html');
+  loadComponent('footer-placeholder', '/components/footer.html');
+</script>
 </html>

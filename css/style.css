@@ -1714,7 +1714,7 @@ p {
 .footer {
   background: linear-gradient(135deg, #0f5d1f, #187a2e);
   color: #ffffff;
-  padding: 80px 20px 0;
+  padding: 80px 0 0 0;
 }
 
 .footer-container {
@@ -1787,6 +1787,9 @@ p {
   text-align: center;
   background: rgba(0,0,0,0.25);
   font-size: 14px;
+  width: 100%;
+  display: block;
+  clear: both;
 }
 
 .footer-container .footer-col:nth-child(2),
@@ -2045,3 +2048,34 @@ p {
       grid-template-columns: 1fr;
     }
   }
+
+  /* 3. QUAN TRỌNG: Chỉnh footer-bottom tràn 2 bên */
+.footer-bottom {
+  width: 100%; /* Tràn hết chiều rộng màn hình */
+  margin:0;
+  padding: 20px 0;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.25); /* Màu tối hơn so với nền footer */
+  font-size: 14px;
+  display: block;
+  clear: both;
+}
+
+/* ===== RESPONSIVE CHO MOBILE (Dưới 768px) ===== */
+@media (max-width: 768px) {
+  .footer {
+    padding-top: 40px; /* Giảm padding trên của footer */
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr; /* Chuyển thành 1 cột */
+    text-align: center;
+    gap: 30px;
+  }
+
+  .footer-bottom {
+    margin-top: 30px; /* Khoảng cách hẹp lại cho cân đối */
+    font-size: 13px; /* Chữ nhỏ lại một chút để tránh rớt hàng quá nhiều */
+    padding: 15px 10px;
+  }
+}
