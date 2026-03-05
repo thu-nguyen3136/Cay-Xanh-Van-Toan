@@ -1,0 +1,609 @@
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 72px; /* chỉnh ở đây */
+  background: #fff;
+  display: flex;
+  align-items: center;
+  z-index: 999;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+
+.header.scrolled {
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+.logo{
+color:#fff;
+font-weight:bold;
+font-size:20px;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+gap:30px;
+}
+
+nav a{
+color:#1b5e20;
+text-decoration:none;
+font-weight:500;
+}
+
+nav ul li a {
+  color: #1b5e20;  /* xanh lá đậm */
+  font-weight: 700;
+}
+nav ul li a:hover {
+  color: #2e7d32;
+}
+
+.logo {
+  color: #1b5e20;
+}
+
+
+footer{
+background:#1b5e20;
+color:#fff;
+padding:20px 0;
+text-align:center;
+}
+
+/* ===== HEADER PROFESSIONAL ===== */
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+nav ul li a {
+  position: relative;
+  color: #1b5e20;
+  text-decoration: none;
+  font-weight: 700;   /* in đậm hơn */
+  letter-spacing: 0.5px;  /* nhìn chuyên nghiệp hơn */
+  transition: color 0.3s ease;
+}
+
+/* Hover underline animation */
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 50%;
+  bottom: -5px;
+  background: #ff9800;
+  transition: all 0.3s ease;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+nav ul li a:hover {
+  color: #ffcc80;
+}
+
+/* ===== MOBILE MENU ===== */
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background: #1b5e20;
+  transition: 0.3s;
+}
+
+@media (max-width: 768px) {
+
+  nav {
+    position: absolute;
+    top: 72px;
+    right: 0;
+    background: #1b5e20;   /* giữ màu xanh brand */
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    transition: 0.3s ease;
+    z-index: 1000;
+  }
+
+  nav.active {
+    height: auto;
+    padding-bottom: 20px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    padding: 20px;
+    gap: 15px;
+  }
+
+  nav ul li a {
+    color: #ffffff;   /* chữ trắng để nổi trên nền xanh */
+    display: block;
+    padding: 10px 0;
+  }
+
+}
+
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  z-index: 1100;   /* để nổi lên trên nav */
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background: #1b5e20;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+}
+
+
+
+/* Floating Contact Buttons */
+
+.floating-contact {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 999;
+}
+
+/* ===== NÚT GỌI ICON + SĐT ===== */
+
+.float-call {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #FF8F00;
+  color: #fff;
+  padding: 14px 22px;
+  border-radius: 50px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  animation: pulseGlow 1.5s infinite;
+  transition: 0.3s;
+}
+
+.float-call:hover {
+  background: #e65100;
+  transform: translateY(-3px);
+}
+
+.phone-icon {
+  font-size: 20px;
+}
+
+.phone-text {
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+/* Nút Zalo */
+.float-zalo {
+  background: #1B5E20;
+  color: #fff;
+  padding: 14px 22px;
+  border-radius: 50px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+.float-zalo:hover {
+  background: #0d3c13;
+  transform: translateY(-3px);
+}
+
+/* Mobile tối ưu */
+@media (max-width: 768px) {
+  .float-call,
+  .float-zalo {
+    padding: 12px 18px;
+    font-size: 14px;
+  }
+}
+
+/* ===== HIỆU ỨNG CHÓE CHÓE LIÊN TỤC ===== */
+
+@keyframes pulseGlow {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 143, 0, 0.7);
+  }
+  50% {
+    transform: scale(1.08);
+    box-shadow: 0 0 25px 10px rgba(255, 143, 0, 0.4);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 143, 0, 0);
+  }
+}
+
+/* Chỉ áp dụng cho nút GỌI */
+.float-call {
+  animation: pulseGlow 1.5s infinite;
+}
+
+
+
+/* ===== NÚT GỌI PHỐI MÀU THEO BRAND XANH LÁ ===== */
+
+.call-wrapper {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border-radius: 50px;
+  padding: 8px 8px 8px 20px;
+  text-decoration: none;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+  z-index: 999;
+  transition: 0.3s;
+}
+
+.call-wrapper:hover {
+  transform: translateY(-3px);
+}
+
+/* Số điện thoại */
+.call-number {
+  font-size: 20px;
+  font-weight: 700;
+  color: #d32f2f;
+  letter-spacing: 1px;
+}
+
+/* Vòng tròn icon */
+.call-icon-circle {
+  width: 60px;
+  height: 60px;
+  background: #2e7d32;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 15px;
+  position: relative;
+  animation: pulseCircle 1.8s infinite;
+  transition: 0.3s;
+}
+
+.call-icon-circle:hover {
+  background: #1b5e20;
+}
+
+/* Icon */
+.call-icon {
+  font-size: 26px;
+  color: #ffffff;
+  animation: ring 1s infinite;
+}
+
+/* Rung icon */
+@keyframes ring {
+  0% { transform: rotate(0); }
+  20% { transform: rotate(-18deg); }
+  40% { transform: rotate(18deg); }
+  60% { transform: rotate(-10deg); }
+  80% { transform: rotate(10deg); }
+  100% { transform: rotate(0); }
+}
+
+/* Sóng lan theo màu xanh */
+@keyframes pulseCircle {
+  0% {
+    box-shadow: 0 0 0 0 rgba(46, 125, 50, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 20px rgba(46, 125, 50, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(46, 125, 50, 0);
+  }
+}
+
+
+/* ===== NÚT ZALO CHUYÊN NGHIỆP ===== */
+
+.zalo-circle {
+  position: fixed;
+  bottom: 110px; /* nằm trên nút gọi */
+  right: 25px;
+  width: 65px;
+  height: 65px;
+  background: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+  z-index: 998;
+  transition: 0.3s;
+}
+
+.zalo-circle:hover {
+  transform: translateY(-3px);
+}
+
+/* Icon */
+.zalo-icon {
+  width: 36px;
+  height: 36px;
+}
+
+
+/* LOGO */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  font-size: 18px;
+  color: #1b5e20;
+}
+
+.logo img {
+  height: 75px;     /* chỉnh nhỏ/lớn tại đây */
+  width: auto;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .logo span {
+    font-size: 14px;
+  }
+
+  .logo img {
+    height: 35px;
+  }
+}
+
+
+
+
+@media (max-width:768px){
+
+  .nav-menu {
+    background: #ffffff;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    padding: 20px 0;
+  }
+
+}
+
+/* ===== FOOTER REDESIGN ===== */
+
+.footer {
+  background: linear-gradient(135deg, #0f5d1f, #187a2e);
+  color: #ffffff;
+  padding: 80px 0 0 0;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 70px;
+  align-items: flex-start;
+}
+
+/* Logo */
+.footer-logo {
+  width: 270px;
+  margin-bottom: 25px;
+}
+
+/* Thông tin */
+.footer-info p {
+  margin-bottom: 12px;
+  font-size: 16px;
+}
+
+.footer-col {
+  text-align: center; /* Căn giữa nội dung 2 cột */
+}
+
+.footer-col h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  position: relative;
+  display: inline-block;
+}
+
+.footer-col h3::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #ffc107;
+  margin: 10px auto 0; /* CĂN GIỮA THANH VÀNG */
+}
+
+/* List */
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 14px;
+}
+
+.footer-col ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer-col ul li a:hover {
+  color: #ffc107;
+  padding-left: 6px;
+}
+
+/* Bottom */
+.footer-bottom {
+  margin-top: 70px;
+  padding: 20px;
+  text-align: center;
+  background: rgba(0,0,0,0.25);
+  font-size: 14px;
+  width: 100%;
+  display: block;
+  clear: both;
+}
+
+.footer-container .footer-col:nth-child(2),
+.footer-container .footer-col:nth-child(3) {
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .footer-logo {
+    margin: 0 auto 20px;
+  }
+
+  .footer-col h3::after {
+    margin: 10px auto 0;
+  }
+}
+
+
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.logo-link img {
+  height: 60px; /* chỉnh nếu cần */
+}
+
+.logo-link span {
+  font-size: 20px;
+  font-weight: 700;
+  color: #157a2e;
+}
+
+.logo-link:hover span {
+  color: #0f5d1f;
+}
+
+
+  
+
+  /* 3. QUAN TRỌNG: Chỉnh footer-bottom tràn 2 bên */
+.footer-bottom {
+  width: 100%; /* Tràn hết chiều rộng màn hình */
+  margin:0;
+  padding: 20px 0;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.25); /* Màu tối hơn so với nền footer */
+  font-size: 14px;
+  display: block;
+  clear: both;
+}
+
+/* ===== RESPONSIVE CHO MOBILE (Dưới 768px) ===== */
+@media (max-width: 768px) {
+  .footer {
+    padding-top: 40px; /* Giảm padding trên của footer */
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr; /* Chuyển thành 1 cột */
+    text-align: center;
+    gap: 30px;
+  }
+
+  .footer-bottom {
+    margin-top: 30px; /* Khoảng cách hẹp lại cho cân đối */
+    font-size: 13px; /* Chữ nhỏ lại một chút để tránh rớt hàng quá nhiều */
+    padding: 15px 10px;
+  }
+}
+
+.footer h3{
+  color: #ffffff;
+}
+
+.container.nav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+
+
+
+/* Logo header */
+.logo img{
+  height:40px;
+  width:auto;
+  object-fit:contain;
+}
+
+/* Mobile */
+@media (max-width:768px){
+
+.logo img{
+  height:32px;
+}
+
+.logo-link span{
+  font-size:14px;
+}
+
+}

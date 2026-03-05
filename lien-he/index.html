@@ -14,6 +14,7 @@
 <meta property="og:url" content="https://cayxanhvantoan.com/lien-he.html">
 <meta property="og:image" content="https://cattiacayxanhvantoan.com/images/banner-cay-xanh-1.jpg">
   <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="/css/layout.css">
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet">
     <link rel="canonical" href="https://cayxanhvantoan.com/lien-he.html">
@@ -65,31 +66,7 @@
 
 <body>
 
-  <header class="header">
-    <div class="container nav">
-      <div class="logo">
-        <a href="/" class="logo-link">
-          <img src="../images/logo__500_x_500_px__cay_xanh-removebg-preview.png" alt="Cây Xanh Văn Toán">
-          <span>CÂY XANH VĂN TOÁN</span>
-        </a>
-      </div>
-
-      <div class="menu-toggle" id="menu-toggle">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-
-      <nav id="navbar">
-        <ul>
-          <li><a href="dich-vu-cua-cay-chat-cay/" class="nav-link">Dịch Vụ Cưa Cây, Chặt Cây</a></li>
-          <li><a href="/dich-vu-cat-tia-cay/" class="nav-link">Dịch Vụ Cắt Tỉa Cây</a></li>
-          <li><a href="/dich-vu-di-doi-cay-xanh/" class="nav-link">Dịch Vụ Di Dời Cây Xanh</a></li>
-          <li><a href="/lien-he/" class="nav-link">Liên Hệ</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+  <div id="header-placeholder"></div>
 
   <section class="contact-page">
     <div class="container">
@@ -137,74 +114,67 @@
     </div>
   </section>
 
-  <footer class="footer">
-    <div class="footer-container">
+ <div id="footer-placeholder"></div>
+<div id="buttons-placeholder"></div>
 
-      <!-- Cột 1 -->
-      <div class="footer-col footer-left">
-        <img src="../images/logo-cay-xanh-dai.jpg" alt="Cây Xanh Văn Toán" class="footer-logo">
+ <script>
+  // Hàm nạp Component có Callback để xử lý sau khi nạp xong
+  function loadComponent(id, file, callback) {
+    fetch(file)
+      .then(response => {
+        if (!response.ok) throw new Error("Không tìm thấy file: " + file);
+        return response.text();
+      })
+      .then(data => {
+        document.getElementById(id).innerHTML = data;
+        // Nếu có hàm callback thì chạy nó
+        if (callback) callback();
+      })
+      .catch(error => console.error('Lỗi:', error));
+  }
 
-        <div class="footer-info">
-          <p>📞 0984 675 414</p>
-          <p>📍 TX25, 136/3 KP6, Thới An, Q12, HCM</p>
-        </div>
-      </div>
-
-      <!-- Cột 2 -->
-      <div class="footer-col">
-        <h3>LIÊN KẾT NHANH</h3>
-        <ul>
-          <li><a href="#">Trang Chủ</a></li>
-          <li><a href="#">Giới Thiệu</a></li>
-          <li><a href="#">Dịch Vụ</a></li>
-          <li><a href="#">Liên Hệ</a></li>
-        </ul>
-      </div>
-
-      <!-- CỘT 3 -->
-      <div class="footer-col">
-        <h3>CHÚNG TÔI CUNG CẤP</h3>
-      <ul>
-    <li><a href="/dich-vu-cua-cay-chat-cay/">Dịch Vụ Cưa Cây, Chặt Cây</a></li>
-    <li><a href="/dich-vu-cat-tia-cay/">Dịch Vụ Cắt Tỉa Cây</a></li>
-    <li><a href="/dich-vu-di-doi-cay-xanh/">Dịch Vụ Di Dời Cây Xanh</a></li>
-  </ul>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      © 2026 CÂY XANH VĂN TOÁN. All rights reserved.
-    </div>
-  </footer>
-
-  <script>
-    const header = document.querySelector(".header");
+  // Nạp Header và xử lý Menu Mobile
+  loadComponent('header-placeholder', '/components/header.html', function() {
     const toggle = document.getElementById("menu-toggle");
     const nav = document.getElementById("navbar");
-
+    
+    if (toggle && nav) {
+      toggle.addEventListener("click", function(e) {
+        e.preventDefault(); // Ngăn chặn hành vi mặc định
+        nav.classList.toggle("active"); // Mở/đóng menu
+        toggle.classList.toggle("open"); // Hiệu ứng xoay nút 3 gạch (nếu có)
+      });
+    }
+    
+    // Xử lý hiệu ứng đổi màu Header khi cuộn trang
     window.addEventListener("scroll", () => {
-      header.classList.toggle("scrolled", window.scrollY > 50);
+      const headerElement = document.querySelector(".header");
+      if(headerElement) {
+        headerElement.classList.toggle("scrolled", window.scrollY > 50);
+      }
     });
+  });
 
-    toggle.addEventListener("click", () => {
-      nav.classList.toggle("active");
-    });
-  </script>
+  // Nạp các thành phần khác
+  loadComponent('footer-placeholder', '/components/footer.html');
+  loadComponent('buttons-placeholder', '/components/contact-buttons.html');
+</script> 
+</script>
 
-  <!-- Floating Contact Buttons -->
-  <div class="floating-contact">
-
-    <a href="tel:0984675414" class="float-call">
-      <span class="phone-icon">📞</span>
-      <span class="phone-text">0984 675 414</span>
-    </a>
-
-    <a href="https://zalo.me/0984675414" target="_blank" class="zalo-circle">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg" alt="Chat Zalo" class="zalo-icon">
-    </a>
-
-  </div>
-
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "LocalBusiness",
+ "name": "Cây Xanh Văn Toán",
+ "image": "https://cattiacayxanhvantoan.com/images/banner-cay-xanh-1.jpg",
+ "telephone": "0938222585",
+ "address": {
+   "@type": "PostalAddress",
+   "addressLocality": "TPHCM",
+   "addressCountry": "VN"
+ },
+ "priceRange": "$$"
+}
 </body>
 
 </html>
