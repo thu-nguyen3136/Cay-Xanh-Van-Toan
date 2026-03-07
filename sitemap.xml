@@ -1,19 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <url>
-    <loc>https://quangcaosmsvietnam.com/</loc>
-    <priority>1.0</priority>
-  </url>
+<url>
+<loc>https://cattiacayxanhvantoan.com/</loc>
+<lastmod>2026-03-07</lastmod>
+<priority>1.00</priority>
+</url>
 
-  <url>
-    <loc>https://quangcaosmsvietnam.com/quang-cao-google</loc>
-    <priority>0.8</priority>
-  </url>
+<url>
+<loc>https://cattiacayxanhvantoan.com/dich-vu-cua-cay-chat-cay.html</loc>
+<priority>0.80</priority>
+</url>
 
-  <url>
-    <loc>https://quangcaosmsvietnam.com/blog</loc>
-    <priority>0.7</priority>
-  </url>
+<url>
+<loc>https://cattiacayxanhvantoan.com/dich-vu-cat-tia-cay.html</loc>
+<priority>0.80</priority>
+</url>
+
+<url>
+<loc>https://cattiacayxanhvantoan.com/dich-vu-di-doi-cay-xanh.html</loc>
+<priority>0.80</priority>
+</url>
+
+<url>
+<loc>https://cattiacayxanhvantoan.com/lien-he.html</loc>
+<priority>0.70</priority>
+</url>
 
 </urlset>
